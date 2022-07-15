@@ -17,11 +17,16 @@ import curv from './curv/curvController'
 import curvGuide from 'src/helpers/cadPackages/curv/userGuide.md'
 import curvInitialCode from 'src/helpers/cadPackages/curv/initialCode.curv'
 
+import irmf from './irmf/irmfController'
+import irmfGuide from 'src/helpers/cadPackages/irmf/userGuide.md'
+import irmfInitialCode from 'src/helpers/cadPackages/irmf/initialCode.irmf'
+
 export const cadPackages: { [key in CadPackageType]: DefaultKernelExport } = {
   openscad,
   cadquery,
   jscad,
   curv,
+  irmf,
 }
 
 export const initGuideMap: { [key in CadPackageType]: string } = {
@@ -29,6 +34,7 @@ export const initGuideMap: { [key in CadPackageType]: string } = {
   cadquery: cadQueryGuide,
   jscad: jsCadGuide,
   curv: curvGuide,
+  irmf: irmfGuide,
   INIT: '',
 }
 
@@ -37,5 +43,6 @@ export const initCodeMap: { [key in CadPackageType]: string } = {
   cadquery: cadQueryInitialCode,
   jscad: jsCadInitialCode,
   curv: curvInitialCode,
+  irmf: irmfInitialCode,
   INIT: '',
 }

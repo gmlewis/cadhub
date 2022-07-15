@@ -40,6 +40,9 @@ app.post(...makeRequest('/cadquery/stl', 5060))
 app.post(...makeRequest('/curv/preview', 5070))
 app.post(...makeRequest('/curv/stl', 5071))
 
+app.post(...makeRequest('/irmf/preview', 5080))
+app.post(...makeRequest('/irmf/stl', 5081))
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

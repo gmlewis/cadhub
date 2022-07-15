@@ -26,6 +26,9 @@ provider:
       curvimage:
         path: ../../
         file: ./src/docker/curv/Dockerfile
+      irmfimage:
+        path: ../../
+        file: ./src/docker/irmf/Dockerfile
   apiGateway:
     metrics: true
     binaryMediaTypes:
@@ -129,6 +132,34 @@ functions:
     events:
       - http:
           path: curv/stl
+          method: post
+          cors: true
+    timeout: 30
+
+  irmfpreview:
+    image:
+      name: irmfimage
+      command:
+        - js/irmf.preview
+      entryPoint:
+        - '/entrypoint.sh'
+    events:
+      - http:
+          path: irmf/preview
+          method: post
+          cors: true
+    timeout: 25
+    memorySize: 3008
+  irmfstl:
+    image:
+      name: irmfimage
+      command:
+        - js/irmf.stl
+      entryPoint:
+        - '/entrypoint.sh'
+    events:
+      - http:
+          path: irmf/stl
           method: post
           cors: true
     timeout: 30

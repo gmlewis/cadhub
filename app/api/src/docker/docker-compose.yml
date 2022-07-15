@@ -70,3 +70,27 @@ services:
     ports:
       - "5071:8080"
 
+  irmf-preview:
+    build:
+      context: ../../
+      dockerfile: ./src/docker/irmf/Dockerfile
+    image: irmf
+    command: js/irmf.preview
+    # Adding volumes so that the containers can be restarted for js only changes in local dev
+    volumes:
+      - ../../dist/docker/irmf:/var/task/js/
+      - ../../dist/docker/common:/var/task/common/
+    ports:
+      - "5080:8080"
+  irmf-stl:
+    build:
+      context: ../../
+      dockerfile: ./src/docker/irmf/Dockerfile
+    image: irmf
+    command: js/irmf.stl
+    # Adding volumes so that the containers can be restarted for js only changes in local dev
+    volumes:
+      - ../../dist/docker/irmf:/var/task/js/
+      - ../../dist/docker/common:/var/task/common/
+    ports:
+      - "5081:8080"
